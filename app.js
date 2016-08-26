@@ -4,7 +4,7 @@ var fs = require('fs')
 	bodyParser = require('body-parser')
 	app = express()
 
-var COMMENTS_FILE = path.join(__dirname, 'comments.js')
+var COMMENTS_FILE = path.join(__dirname, 'comments.json')
 
 app.set('port', (process.env.PORT || 8080))
 
@@ -31,6 +31,31 @@ app.get('/api/comments', function(req, res) {
 			process.exit(1)
 		}
 		res.json(JSON.parse(data))
+	})
+})
+
+app.post('/api/comments', function(req, res) {
+	fs.readFile(COMMENTS_FILE, function(err, data) {
+		if (err) {
+			console.error(err)
+			process.exit(1)
+		}
+		var comments = JSON.parse(data)
+
+		var newComment = {
+			id: Date.now(), 
+			author: req.body.author,
+			text: req.body.text
+		}
+		comments.push(newComment)
+
+		fs.writeFile(COMMENTS_FILE, JSON.stringify(comments, null, 4), function(err) {
+			if (err) {
+				console.error(err)
+				process.exit(1)
+			}
+			res.json(comments)
+		})
 	})
 })
 
