@@ -1,0 +1,28 @@
+{
+  "name": "t10plus20-comments",
+  "version": "1.0.0",
+  "description": "an app for comments",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "foo"
+  },
+  "dependencies": {
+    "body-parser": "^1.4.3",
+    "express": "^4.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/majkoll/t10plus20-comments.git"
+  },
+  "keywords": [
+    "comments",
+    "t10plus20"
+  ],
+  "author": "m",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/majkoll/t10plus20-comments/issues"
+  },
+  "homepage": "https://github.com/majkoll/t10plus20-comments#readme"
+}
