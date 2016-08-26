@@ -1,6 +1,6 @@
 global-reset()
 
-html
+html, body, #content
 	height: 100%
 body
 	width: 100%
@@ -8,4 +8,51 @@ body
 	font-family: 'Open Sans Condensed'
 	background-color: black
 	color: white
+	
+.commentFormContainer
+	position: absolute
+	top: 0
+	background: white
+	width: 100%
+	padding: 2%
+	
+.commentFormContainer h1
+	color: black
+	margin-bottom: .4%
+
+.commentForm input
+	border-width: 0 0 1px 0
+
+.commentForm input:first-child
+	margin-right: 1.4%
+
+.formSubmit
+	background-color: rgba(0, 0, 0, 1)
+	color: white
+	border: none
+	cursor: pointer
+	margin-left: 1.4%
+
+.commentList
+	margin-top: 14%
+	display: flex
+	flex-flow: row wrap
+	width: 100vw
+	padding: 0 1% 0 1%
+	box-sizing: border-box
+	
+.comment
+	width: 30vw
+	height: auto
+	margin-bottom: 2%
+	border: 1px solid rgba(255, 255, 255, .3)
+	border-width: 0 0 0 1px
+	padding-left: 1%
+	box-sizing: border-box
+	
+.commentAuthor
+	font-size: 2vw
+
+.comment:nth-child(3n -1)
+	margin: 0 1.5% 0 1.5%
 	

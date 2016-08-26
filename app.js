@@ -47,7 +47,7 @@ app.use(function(req, res, next) {
 	res.send(req.params.name)
 })*/
 
-app.get('/api/comments', function(req, res, id) {
+app.get('/api/comments', function(req, res) {
 	fs.readFile(COMMENTS_FILE, function(err, data) {
 		if (err) {
 			console.error(err)
@@ -57,7 +57,7 @@ app.get('/api/comments', function(req, res, id) {
 	})
 })
 
-app.post('/api/comments/:name', function(req, res) {
+app.post('/api/comments', function(req, res) {
 	fs.readFile(COMMENTS_FILE, function(err, data) {
 		if (err) {
 			console.error(err)
