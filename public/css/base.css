@@ -1,0 +1,103 @@
+body {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0;
+  padding: 2%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+a {
+  color: #4183c4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+code {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  font-family: "Bitstream Vera Sans Mono", Consolas, Courier, monospace;
+  font-size: 12px;
+  margin: 0 2px;
+  padding: 0 5px;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold;
+  margin: 0 0 15px;
+  padding: 0;
+}
+
+h1 {
+  border-bottom: 1px solid #ddd;
+  font-size: 2.5em;
+}
+
+h2 {
+  border-bottom: 1px solid #eee;
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.2em;
+}
+
+p, ul {
+  margin: 15px 0;
+}
+
+ul {
+  padding-left: 30px;
+}
+button {
+  display: block;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  background: #fcfcfc;
+  color: #121212;
+  cursor: pointer;
+}
+#content {
+  width: 100%;
+}
+.commentBox {
+  width: 100%;
+}
+.commentList {
+  width: 60%;
+  float: left;
+}
+.commentFormContainer {
+  position: relative;
+  width: 40%;
+  float: left;
+}
+.commentForm {
+  position: fixed;
+  margin-left: 1%;
+  width: 40%;
+}
+.commentForm input {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2%;
+  width: 95%;
+}
+.comment {
+  padding: 1%;
+  box-sizing: border-box;
+}
+.comment:nth-child(odd) {
+  background-color: rgba(110,110,110,.1);;
+}

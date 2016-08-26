@@ -2,12 +2,29 @@ var fs = require('fs')
 	path = require('path')
 	express = require('express')
 	bodyParser = require('body-parser')
+	stylus = require('stylus')
+	nib = require('nib')
 	app = express()
 
 var COMMENTS_FILE = path.join(__dirname, 'comments.json')
 
 app.set('port', (process.env.PORT || 8080))
 
+app.use(stylus.middleware({
+	src: __dirname + '/resources',
+	dest: __dirname + '/public',
+	debug: true,
+	force: true,
+	compile: function compile(str, path) {
+		console.log('compiling stylus to css')
+		return stylus(str)
+			.set('filename', path)
+			.set('warn', true)
+			.set('compress', true)
+			.use(nib())
+			.import('nib')
+	}
+}))
 app.use('/', express.static(path.join(__dirname, 'public')))
 
 app.use(bodyParser.json())
@@ -24,7 +41,13 @@ app.use(function(req, res, next) {
     next()
 })
 
-app.get('/api/comments', function(req, res) {
+/*app.use('/test/:name', function(req, res, next) {
+	//res.sendFile(__dirname + '/public/test.html')
+	req.params.name = req.params.name || null
+	res.send(req.params.name)
+})*/
+
+app.get('/api/comments', function(req, res, id) {
 	fs.readFile(COMMENTS_FILE, function(err, data) {
 		if (err) {
 			console.error(err)
@@ -34,7 +57,7 @@ app.get('/api/comments', function(req, res) {
 	})
 })
 
-app.post('/api/comments', function(req, res) {
+app.post('/api/comments/:name', function(req, res) {
 	fs.readFile(COMMENTS_FILE, function(err, data) {
 		if (err) {
 			console.error(err)
