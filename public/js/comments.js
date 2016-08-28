@@ -43,9 +43,8 @@ var CommentBox = React.createClass({
 	render: function() {
 		return (
 			<div className="commentBox">
-				<h2>Comments</h2>
-				<CommentList data={this.state.data} />
 				<CommentForm onCommentSubmit={this.handleCommentSubmit} />
+				<CommentList data={this.state.data} />
 			</div>
 		)
 	}
@@ -74,10 +73,10 @@ var CommentForm = React.createClass({
 	render: function() {
 		return (
 			<div className="commentFormContainer">
-				<h1>What is on your mind?</h1>
+				<h1>Message/comment/idea bord</h1>
 				<form className="commentForm" onSubmit={this.handleSubmit}>
+					<input type="text" placeholder="What's on your mind" value={this.state.text} onChange={this.handleTextChange} />
 					<input type="text" placeholder="Name" value={this.state.author} onChange={this.handleAuthorChange} />
-					<input type="text" placeholder="Comment" value={this.state.text} onChange={this.handleTextChange} />
 					<input className="formSubmit" type="submit" value="Post" />
 				</form>
 			</div>
@@ -107,10 +106,12 @@ var Comment = React.createClass({
 	render: function() {
 		return (
 			<div className="comment">
+				<p>
+					{this.props.children}
+				</p>
 				<h4 className="commentAuthor">
-					{this.props.author}
+					 - {this.props.author}
 				</h4>
-				{this.props.children}
 			</div>
 		)
 	}
